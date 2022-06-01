@@ -1,0 +1,30 @@
+body {
+	background: radial-gradient(circle at top, #3e86ac 0%, #3364a3 38%, #000000 100%);
+    color: #fff;
+	background-size: 100vw 100vh;
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+
+.star {
+	position: absolute;
+	z-index: 50 !important;
+	transform: scale(1);
+	transform-origin: center;
+	transition: all 0.5s;
+}
+
+.star.red {
+	background: url("/assets/images/starred.svg") no-repeat/*, radial-gradient(circle at center, #3e86ac 0%, #3364a3 19%, transparent 50%);*/
+}
+
+.star.white {
+	background: url("/assets/images/starwhite.svg") no-repeat/*, radial-gradient(circle at center, #3e86ac 0%, #3364a3 19%, transparent 50%);*/
+}
+
+.star.hidden {
+	opacity: 0;
+	/*width: 0 !important;
+	height: 0 !important;*/
+	transform: scale(0) !important;
+}

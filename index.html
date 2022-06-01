@@ -1,0 +1,250 @@
+<!--
+	hello yes twitter devs asked me to put this in the html source so yes
+	this site uses twemoji for those few emojis I put
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>vinche's website</title>
+		<meta charset="UTF-8">
+        <link rel="stylesheet" href="/assets/style/style.css">
+        <link rel="stylesheet" href="/assets/style/overlay.css">
+        <link rel="stylesheet" href="/assets/style/background.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+        <meta name="keywords" content="vincy.zsh, vinche the script, vincy, vinche.zsh">
+		<script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+		<div class="stars"></div>
+		<div class="centeredStuffContainer">
+			<div class="centeredStuff">
+				<div class="titleDiv" onclick="toggleBoxes()">
+					<h2 class="vinchetitle">_</h2>
+				</div>
+				<br>
+				<div class="boxes">
+					<div class="box about">
+						<div class="content">
+							<h2>about me</h2>
+							hello, I'm vinche, a <div class="age"></div>girl who's interested in tech.
+							coding is my passion, but I also often mess with hardware, sometimes ending up with breaking it
+						</div>
+					</div>
+					<div class="box projects">
+						<div class="content">
+							<h2>my projects</h2>
+							- <div class="item vincystream">Vincy's stream</div><br>
+							- <div class="item debianissimo">Debianissimo</div><br>
+							- <div class="item strapbot">StrapBot</div><br>
+							- <div class="item dgoose">Discord Goose</div>
+						</div>
+					</div>
+					<div class="box socials">
+						<div class="content">
+							<h2>my socials</h2>
+							- <div class="item discord" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/discord.gg\/uEVf5zftqJ')">discord</div><br>
+							- <div class="item telegram" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/t.me\/Vinchethescript')">telegram</div><br>
+							- <div class="item telegramChannel" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/t.me\/About_Vinche')">telegram channel</div><br>
+							- <div class="item telegramGroup" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/t.me\/Vinche_cafe')">telegram group</div><br>
+							- <div class="item twitter" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/twitter.com\/@Vincydotzsh')">twitter</div><br>
+							- <div class="item reddit" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/reddit.com\/u/Vincysuper07')">reddit</div>
+						</div>
+
+					</div>
+					<div class="box friends">
+						<div class="content">
+							<h2>my friends</h2>
+							I have a lot of friends online, this is just a list of a few of them<br>
+							- <div class="item anto">Antogamer</div><br>
+							- <div class="item emuly">Emuly</div><br>
+							- <div class="item erg">JxstErg1</div><br>
+							- <div class="item jessica">elegantlyclandestine</div><br>
+							- <div class="item atom">at0m</div><br>
+							- <div class="item stuck">StuckDuck</div><br>
+							- <div class="item fleny">Fleny113</div><br>
+							- <div class="item grifo" onclick='htmlSucksAndAllowsHrefOnlyOnButtons("https:\/\/grifonice99.it")'>grifonice99</div><br>
+							- <div class="item mortix" onclick='htmlSucksAndAllowsHrefOnlyOnButtons("https:\/\/princessmortix.link")'>Mortix</div><br>
+							- <div class="item spiritetg">spiritETG</div><br>
+							- <div class="item beru">Beru</div><br>
+						</div>
+
+					</div>
+					<!--
+					<div class="box tests">
+						<div class="content">
+							<h2>test</h2>
+							<div class="item coso">coso</div>
+						</div>
+					</div>
+					-->
+					<div class="vinchemadethiswithherheart">website made with vinche's ❤️</div>
+
+
+				<!-- projects -->
+				<div style="display: none" class="projectsList">
+					<div class="itemThingContent vincystream">
+						<div class="content">
+							vincystream is my own stream containing some ncs songs I like at http://vincystream.online/stream
+							<br><br>
+							- <div class="item listenToVincystream">listen to it</div>
+						</div>
+					</div>
+					<div class="itemThingContent listenToVincystream">
+						<h2>vincystream player</h2>
+						<div class="center">
+							<button class="vincystreamButton" onclick="toggleStreamAndChangeButtonText()">play</button>
+							<img class="vincystreamCover" onclick="toggleStreamAndChangeButtonText()">
+							<div class="vincystreamTitle"></div>
+							<div class="vincystreamArtist smallerText"></div>
+							<input type="range" min="0" max="100" value="50" class="vincystreamVolume" oninput="setStreamVolume(this.value)">
+							<div class="volumeValue">50%</div>
+						</div>
+					</div>
+					<div class="itemThingContent debianissimo">
+						debianissimo is a porting of the ordissimo os to any computer, born as a joke<br>
+						it is italian only and discontinued at the moment
+						<br><br>
+						- <div class="item" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/debianissimo.it')">website</div>
+					</div>
+					<div class="itemThingContent strapbot">
+						strapbot is an open-source useful discord bot that has many useful commands<br>
+						it is written in python and uses discord.py<br>
+						tbh I recommend you to use the beta one, slash commands don't work but hey it has more features
+						<br><br>
+						- <div class="item" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/github.com\/StrapBot\/StrapBot')">github</div><br>
+						- <div class="item" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/discord.com\/oauth2\/authorize?client_id=740140581174378527&permissions=395945573431&scope=bot')">invite stable</div><br>
+						- <div class="item" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/discord.com\/oauth2\/authorize?client_id=903372493316821104&permissions=395945573431&scope=bot%20applications.commands')">invite beta</div>
+					</div>
+					<div class="itemThingContent dgoose">
+						honk.<br>discord goose is a bot that messes with your discord server, sends a random message in a random channel, or joins a voice channel and says "honk"<br>
+						also it is completely configurable so you can choose the channels you don't want it to send messages in
+						<br><br>
+						- <div class="item" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/discord.com\/api\/oauth2\/authorize?client_id=909415919397261342&permissions=1236987595776&scope=bot%20applications.commands')">invite</div><br>
+					</div>
+				</div>
+				<!-- socials -->
+				<!--<div style="display: none" class="socialsList"></div>-->
+				<!-- friends -->
+				<div style="display: none" class="friendsList">
+					<div class="itemThingContent anto">
+						anto is the first friend I met on discord before irl, he's a cool guy and I trust him
+						<br><br>
+						- <div class="item" onclick='htmlSucksAndAllowsHrefOnlyOnButtons("https:\/\/antogamer.it")'>website</div>
+					</div>
+					<div class="itemThingContent emuly">
+						emuly is a good friend of mine, I trust her<br>she's the president of
+						<div class="item" onclick='htmlSucksAndAllowsHrefOnlyOnButtons("https:\/\/woozy.land")'>woozyland</div>
+					</div>
+					<div class="itemThingContent erg">
+						erg is another good friend of mine, I trust him too<br>
+						he did many favors for me, for example
+						he gave me a user in his dedicated server
+						and he gave me this domain to make this website
+						<br><br>
+						- <div class="item" onclick='htmlSucksAndAllowsHrefOnlyOnButtons("https:\/\/jxsterg1.xyz")'>website</div>
+					</div>
+					<div class="itemThingContent jessica">
+						jessica is another nice friend I trust 👳‍♂️<br>
+						thanks to her we have tre del mattino<br>
+						sometimes I tell her some random italian words and their meaning
+					</div>
+					<div class="itemThingContent atom">
+						atom is another good friend who I trust 🦕<br>
+						I created debianissimo with him
+						<br><br>
+						- <div class="item" onclick='htmlSucksAndAllowsHrefOnlyOnButtons("https:\/\/anatom.it")'>website</div>
+					</div>
+					<div class="itemThingContent stuck">
+						stuck is another nice friend I trust<br>
+						he helped me a lot with styling, he
+						chose the debianissimo style we are
+						using now (it's debian's "spacefun"
+						theme, which is used in this site's
+						background too), and he helped me a
+						lot with an old project's style.
+						<br><br>
+						- <div class="item" onclick='htmlSucksAndAllowsHrefOnlyOnButtons("https:\/\/hd917.github.io")'>website</div>
+					</div>
+					<!--
+					<div class="itemThingContent fleny">
+						placeholder
+					</div>
+					<div class="itemThingContent grifo">
+						placeholder
+					</div>
+					<div class="itemThingContent mortix">
+						placeholder
+					</div>
+					<div class="itemThingContent spiritetg">
+						placeholder
+					</div>
+					-->
+					<div class="itemThingContent beru">
+						actually I don't know why but I trust her a lot<br>
+						I know her since a lot of time, and I talked a lot with her
+						<br><br>
+						- <div class="item" onclick='htmlSucksAndAllowsHrefOnlyOnButtons("https:\/\/windowz414.com")'>website</div>
+					</div>
+				</div>
+				<!--
+				<div style="display: none" class="testsList">
+					<div class="itemThingContent coso">
+						<div class="content">
+							<div class="item sottocoso">
+								sottocoso
+							</div>
+						</div>
+					</div>
+					<div class="itemThingContent sottocoso">
+						<div class="content">
+							<div class="item altrosottocoso">
+								altro sottocoso
+							</div>
+						</div>
+					</div>
+					<div class="itemThingContent altrosottocoso">
+						funziona
+					</div>
+				</div>
+				-->
+			</div>
+        </div>
+        <script src="/assets/scripts/core.js"></script>
+        <script src="/assets/scripts/script.js"></script>
+        <script src="/assets/scripts/projects.js"></script>
+        <script src="/assets/scripts/vincystream.js"></script>
+        <script src="/assets/scripts/age.js"></script>
+        <script src="/assets/scripts/background.js"></script>
+        <script>
+        	// alert(document.querySelector(".dgoose").getBoundingClientRect().x)
+			twemoji.parse(document.body, {
+				callback: (icon, options) => {
+					switch ( icon ) {
+						case 'a9':      // © copyright
+						case 'ae':      // ® registered trademark
+						case '2122':    // ™ trademark
+							return false;
+					}
+					return ''.concat(options.base, options.size, '/', icon, options.ext);
+				}
+			});
+        	(async() => {
+				makeStars()
+	        	await sleep(250)
+				titleAnimation()
+				startMetaLoop()
+				removeRandomStars()
+				alwaysUpdateAge()
+				/*
+				let screenHeight = 0
+				while (true) {
+					if (screenHeight != screen.height) {
+						screenHeight = screen.height
+						document.body.style.backgroundSize = "100% " + screenHeight + "px"
+					}
+					await sleep(1)
+				}*/
+			})()
+        </script>
+    </body>
+</html>
