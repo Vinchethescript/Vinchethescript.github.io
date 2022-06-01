@@ -26,6 +26,39 @@
 	-moz-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+body {
+	background-color: #000;
+	color: #fff;
+	height: 120vh;
+	width: 100vw;
+	background-size: 100vw 100vh;
+	
+	overflow-y: hidden;
+	margin: 0;
+	background-position: 0 -200vh;
+	transition: background-position 1s;
+}
+
+body.background {
+	background-size: 100vw 139vh;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+body.background.animate {
+	animation: bgAnimation 5s alternate infinite ease-in-out;
+}
+
+@keyframes bgAnimation {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: 0 -10vh;
+	}
+}
+
+
 .centeredStuffContainer {
 	position: fixed;
 	top: 0;
@@ -67,6 +100,18 @@
 
 .box.friends {
 	min-height: 300px
+}
+
+.boxes {
+	transition: opacity 0.5s;
+}
+
+.hidden {
+	opacity: 0;
+}
+
+.kindaRemoved {
+	display: none
 }
 
 .box.hidden {

@@ -68,7 +68,7 @@ const itemOnClick = async (item, box, type, projectContent, parentContent) => {
 	await sleep(1)
 	const currentHeight = parseInt(window.getComputedStyle(box).height)
 	backButton.onclick = () => onBackButtonClick(item, box, startHeight, currentHeight, projectContent, content)
-	
+
 	let heightBeingUsed = parseInt(startHeight)
 	//let bodyHeightBeingUsed = parseInt(bodyStartHeight)
 	box.style.height = startHeight
@@ -84,9 +84,9 @@ const itemOnClick = async (item, box, type, projectContent, parentContent) => {
 	}
 }
 
-const boxes = document.querySelectorAll(".box")
+const allBoxes = document.querySelectorAll(".box")
 
-for (let box of boxes) {
+for (let box of allBoxes) {
 	let type = box.classList[1]
 	if (type.endsWith("s")) {
 		type = type.slice(0, -1)

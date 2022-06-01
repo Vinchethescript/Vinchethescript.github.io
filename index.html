@@ -1,6 +1,7 @@
 <!--
 	hello yes twitter devs asked me to put this in the html source so yes
 	this site uses twemoji for those few emojis I put
+	also, I use Cascadia Mono as font for this site
 -->
 <!DOCTYPE html>
 <html>
@@ -18,11 +19,10 @@
 		<div class="stars"></div>
 		<div class="centeredStuffContainer">
 			<div class="centeredStuff">
-				<div class="titleDiv" onclick="toggleBoxes()">
+				<div class="titleDiv">
 					<h2 class="vinchetitle">_</h2>
 				</div>
-				<br>
-				<div class="boxes">
+				<div class="boxes hidden kindaRemoved">
 					<div class="box about">
 						<div class="content">
 							<h2>about me</h2>
@@ -86,7 +86,8 @@
 						<div class="content">
 							vincystream is my own stream containing some ncs songs I like at http://vincystream.online/stream
 							<br><br>
-							- <div class="item listenToVincystream">listen to it</div>
+							<!--- <div class="item listenToVincystream">listen to it</div>-->
+							- stream is unavailable
 						</div>
 					</div>
 					<div class="itemThingContent listenToVincystream">
@@ -213,9 +214,10 @@
         <script src="/assets/scripts/script.js"></script>
         <script src="/assets/scripts/projects.js"></script>
         <script src="/assets/scripts/vincystream.js"></script>
-        <script src="/assets/scripts/age.js"></script>
+        <script src="/assets/scripts/dates.js"></script>
         <script src="/assets/scripts/background.js"></script>
         <script>
+
         	// alert(document.querySelector(".dgoose").getBoundingClientRect().x)
 			twemoji.parse(document.body, {
 				callback: (icon, options) => {
@@ -228,13 +230,23 @@
 					return ''.concat(options.base, options.size, '/', icon, options.ext);
 				}
 			});
+
         	(async() => {
-				makeStars()
-	        	await sleep(250)
+				if (document.cookie) {
+					const boxes = document.querySelector(".boxes")
+					const title = document.querySelector(".titleDiv h2.vinchetitle")
+					boxes.classList.remove("kindaRemoved")
+					boxes.classList.remove("hidden")
+					title.onclick = toggleBoxes
+					document.body.classList.add("background")
+					document.body.classList.add("animate")
+					makeStars()
+	        		await sleep(250)
+					//startMetaLoop()
+					removeRandomStars()
+					alwaysUpdateAge()
+				}
 				titleAnimation()
-				startMetaLoop()
-				removeRandomStars()
-				alwaysUpdateAge()
 				/*
 				let screenHeight = 0
 				while (true) {
