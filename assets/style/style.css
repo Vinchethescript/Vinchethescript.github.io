@@ -58,6 +58,23 @@ body.background.animate {
 	}
 }
 
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar:hover {
+	width: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: rgba(155, 155, 156, .5);
+	border-radius: 10px;
+	border: 1px solid rgba(34, 34, 37, .9);
+}
+
+::-webkit-scrollbar-track {
+	background-color: rgba(0, 0, 0, 0);
+}
 
 .centeredStuffContainer {
 	position: fixed;

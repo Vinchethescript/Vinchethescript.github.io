@@ -23,32 +23,17 @@ const titleAnimation = async () => {
 	await sleep(1000)
 	setTitleText(coso)
 	await sleep(1000)
-	setTitleText(coso + ".")
-	await sleep(100)
-	setTitleText(coso + "./")
-	await sleep(100)
-	setTitleText(coso + "./V")
-	await sleep(100)
-	setTitleText(coso + "./Vi")
-	await sleep(100)
-	setTitleText(coso + "./Vin")
-	await sleep(100)
-	setTitleText(coso + "./Vinc")
-	await sleep(100)
-	setTitleText(coso + "./Vinch")
-	await sleep(100)
-	setTitleText(coso + "./Vinche")
-	await sleep(100)
-	setTitleText(coso + "./Vinche.")
-	await sleep(100)
-	setTitleText(coso + "./Vinche.z")
-	await sleep(100)
-	setTitleText(coso + "./Vinche.zs")
-	await sleep(100)
-	setTitleText(coso + "./Vinche.zsh")
+	
+	const altrocoso = "./Vinche.zsh"
+	const cosi = coso + altrocoso
+	for (let i = 1; i < altrocoso.length + 1; i++) {
+		setTitleText(coso + altrocoso.slice(0, i))
+		await sleep(100)
+	}
+
 	if (startWithTitle) {
 		await sleep(200)
-		setTitleText(coso + "./Vinche.zsh<br>")
+		setTitleText(cosi + "<br>")
 		await sleep(1000)
 
 
@@ -57,7 +42,7 @@ const titleAnimation = async () => {
 		boxes.classList.remove("hidden")
 		title.onclick = toggleBoxes
 		animateTitle = false
-		setTitleText(coso + "./Vinche.zsh")
+		setTitleText(cosi)
 		document.body.classList.add("background")
 		makeStars()
 		removeRandomStars()
