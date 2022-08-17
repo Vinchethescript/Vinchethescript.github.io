@@ -3,6 +3,9 @@
     color: #fff;
 	background-repeat: no-repeat;
 	overflow: hidden;
+	background-attachment: fixed;
+	background-size: auto;
+	height: 100vmax;
 }
 
 .star {
