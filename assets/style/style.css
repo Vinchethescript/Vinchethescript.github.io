@@ -20,6 +20,11 @@
 	src: url("/assets/fonts/CascadiaMono-Italic.ttf") format("truetype");
 }
 
+:root {
+	--min-box-height: 200px;
+	--interval: 100ms;
+}
+
 * {
 	font-family: "CascadiaCode";
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -29,98 +34,48 @@
 body {
 	background-color: #000;
 	color: #fff;
-	height: 120vh;
-	width: 100vw;
-	background-size: 100vw 100vh;
-	
-	overflow-y: hidden;
 	margin: 0;
+	overflow-x: hidden;
 	background-position: 0 -200vh;
-	transition: background-position 1s;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	transition: background-position calc(var(--interval) * 10);
 }
 
 body.background {
 	background-size: 100vw 139vh;
 	background-repeat: no-repeat;
 	background-position: 0 0;
+	z-index: 1;
 }
 
-body.background.animate {
-	animation: bgAnimation 5s alternate infinite ease-in-out;
-}
-
-@keyframes bgAnimation {
-	0% {
-		background-position: 0 0;
-	}
-	100% {
-		background-position: 0 -10vh;
-	}
-}
-
-::-webkit-scrollbar {
-	width: 10px;
-}
-
-::-webkit-scrollbar:hover {
-	width: 11px;
-}
-
-::-webkit-scrollbar-thumb {
-	background-color: rgba(155, 155, 156, .5);
-	border-radius: 10px;
-	border: 1px solid rgba(34, 34, 37, .9);
-}
-
-::-webkit-scrollbar-track {
-	background-color: rgba(0, 0, 0, 0);
-}
-
-.centeredStuffContainer {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	overflow-y: auto;
-	overflow-x: hidden;
-	z-index: 100
-}
 
 .centeredStuff {
     width: 500px;
-    display: block;
-    margin: auto;
-    left: 0;
-    right: 0;
-	z-index: 100;
+    display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	z-index: 2;
 }
-
 
 .box {
 	background-color: rgba(0,0,0,.5);
-	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
 	border-radius: 25px;
 	border: 5px solid rgb(53, 57, 64);
 	padding: 10px;
-	transition: all 1s;
-	height: auto;
-	overflow: hidden;
-	position: relative;
-	z-index: 100;
+	transition: all calc(var(--interval) * 10);
 	transform: scale(1);
 	opacity: 1;
-	display: block;
-	min-height: 200px;
+	margin-top: 12px;
+	overflow: hidden;
 }
 
-.box.friends {
-	min-height: 300px
-}
 
 .boxes {
-	transition: opacity 0.5s;
+	transition: opacity calc(var(--interval) * 5);
 }
 
 .hidden {
@@ -144,24 +99,20 @@ body.background.animate {
 	opacity: 1;
 	transform: scale(1);
 	visibility: visible;
-	transition: all 1s;
+	transition: all calc(var(--interval) * 10);
 	top: 0;
-	width: 99%;
-	height: 100%;
+	left: 0;
+	width: 100%;
 	line-break: auto;
 	position: absolute;
-}
-
-
-.box + .box {
-	margin-top: 12px;
+	min-height: 200px;
+	margin: 5px;
 }
 
 .titleDiv {
 	margin: 0;
 	padding: 10px;
 	position: relative;
-	z-index: 100
 }
 
 .titleDiv h2.vinchetitle {
@@ -193,14 +144,10 @@ button.backButton {
 	justify-content: flex-end
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 500px) {
 	.centeredStuff {
-		width: auto;
+		width: 100vw;
 		padding: 10px
-	}
-	.centeredStuffContainer {
-		width: 100%;
-		height: 100%;
 	}
 	.titleDiv {
 		width: 100%;
@@ -208,22 +155,22 @@ button.backButton {
 	}
 }
 
-img.emoji {
+/* I'm not removing this because maybe
+ * twemoji will be available again in the future
+ */
+/*img.emoji {
 	height: 1em;
 	width: 1em;
 	margin: 0 .05em 0 .1em;
 	vertical-align: -0.1em;
-}
+}*/
 
-.vinchemadethiswithherheart {
+.bottomText {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 	padding: 10px;
-}
-
-.volumeValue {
-	display: inline-block;
 }
 
 .center {
@@ -237,26 +184,48 @@ img.emoji {
 	font-size: 0.8em;
 }
 
-.vincystreamCover {
-	width: 150px;
-	height: auto;
-	border-radius: 5px;
-}
-
-.volumeValue {
-	display: inline-flex
-}
-
-.vincystreamVolume {
-	width: 200px;
-	display: inline-flex
-}
-
-.vincystreamButton {
-	font-size: 16px
-}
-
 .age {
 	display: inline-block;
 	white-space: pre;
+}
+
+a {
+	color: #fff;
+	text-decoration: none;
+}
+
+a::after {
+	content: " (>)"
+}
+
+a[hide]::after {
+	content: ""
+}
+
+.dialog {
+	display: inline-block;
+}
+
+.dialog .text {
+	--duration: calc(var(--interval) * 3);
+	background-color: rgba(0,0,0,.125);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+	border-radius: 25px;
+	border: 5px solid rgb(53, 57, 64);
+	opacity: 0;
+	visibility: hidden;
+	color: #fff;
+	text-align: center;
+	border-radius: 10px;
+	padding: 5px 5px;
+	position: absolute;
+	margin-left: -60px;
+	transition: opacity var(--duration), visibility var(--duration);
+	z-index: 4;
+}
+
+.dialog:hover .text {
+	visibility: visible;
+	opacity: 1;
 }

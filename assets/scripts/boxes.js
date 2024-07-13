@@ -9,82 +9,90 @@ const getProjectElement = (projects, id) => {
 	}
 }
 
-const onBackButtonClick = async (item, box, originalHeight, currentHeight, project, content) => {
+const onBackButtonClick = async(item, box, originalHeight, currentHeight, project, content) => {
+	console.trace(item, project)
+	project.style.zIndex = ""
 	box.classList.remove("itemThing")
 	content.classList.remove("itemThing")
 	project.classList.remove("show")
+	box.dataset.openItem = ""
 	box.style.height = currentHeight
 	let heightBeingUsed = currentHeight
 
-	while (heightBeingUsed > parseInt(originalHeight)) {
-		heightBeingUsed -= 1
-		requestAnimationFrame(() => {
-			box.style.height = heightBeingUsed + "px"
-		})
+	if (heightBeingUsed > parseInt(originalHeight)) {
+		box.style.height = originalHeight	
 	}
+	
+	await sleep(interval * 10)
 
-//	while (window.getComputedStyle(project).opacity != "0") await sleep(0)
-
-	//await sleep(10)
-
-
-	const transitionsend = async () => {
-		//project.removeChild(document.querySelector(".backButton"))
-		box.removeChild(project)
-		project.removeEventListener("transitionend", transitionsend)
-	}
-	project.addEventListener('transitionend', transitionsend)
-
+	if (box.dataset.openItem == project.classList[1]) return
+	box.removeChild(project)
 }
 
-const itemOnClick = async (item, box, type, projectContent, parentContent) => {
+const itemOnClick = async(item, box, type, projectContent, parentContent) => {
 
 	const startHeight = window.getComputedStyle(box).height
-	//const bodyStartHeight = screen.height
 	const content = parentContent
-	box.style.height = startHeight
+	projectContent.style.zIndex = 5
+	box.dataset.openItem = item.classList[1]
 	box.classList.add("itemThing")
 	content.classList.add("itemThing")
+
 	box.appendChild(projectContent)
-//	alert(newcoso)
 	projectContent.style.display = "block"
 	await sleep(1)
 	projectContent.classList.add("show")
 
 	let backButton = {}
+	const contentOrProj = projectContent.querySelector(".content") ?? projectContent
 	if (!projectContent.querySelector(".backButton")) {
 		backButton = document.createElement("button")
 		backButton.classList.add("backButton")
 		backButton.innerText = "< back"
-		const whereToAdd = projectContent.querySelector(".content") ?? projectContent
-		whereToAdd.appendChild(backButton)
+		contentOrProj.appendChild(backButton)
 	}
-
-	box.style.height = ""
-	box.style.transition = "none"
 
 
 //	content.style.display = "none"
 	await sleep(1)
-	const currentHeight = parseInt(window.getComputedStyle(box).height)
+	//const currentHeight = parseInt(window.getComputedStyle(box).height)
+	const currentHeight = parseInt(window.getComputedStyle(contentOrProj).height)
 	backButton.onclick = () => onBackButtonClick(item, box, startHeight, currentHeight, projectContent, content)
 
 	let heightBeingUsed = parseInt(startHeight)
 	//let bodyHeightBeingUsed = parseInt(bodyStartHeight)
-	box.style.height = startHeight
-	box.style.transition = ""
-	while (currentHeight > heightBeingUsed) {
-		heightBeingUsed += 1
-		//bodyHeightBeingUsed += 1
-		requestAnimationFrame(() => {
-			box.style.height = heightBeingUsed + "px"
-			//const bodyHeightToUse = "100% " + bodyHeightBeingUsed + "px"
-			//document.body.style.backgroundSize = bodyHeightToUse
-		})
+	if (currentHeight > heightBeingUsed) {
+		box.style.height = currentHeight + "px"
+		await sleep(1000)
 	}
 }
 
 const allBoxes = document.querySelectorAll(".box")
+
+const fixBox = (box) => {
+	const type = box.classList[1]
+	const hk = "box-" + type + "-height"
+	const cont = box.querySelector(".content") ?? box
+	if (cookies[hk]) {
+		box.style.height = cookies[hk]
+	} else {
+		box.style.height = getComputedStyle(cont).minHeight
+	}
+	const fix = () => {
+		const hg = getComputedStyle(cont).height
+		if (hg === cookies[hk]) return
+		box.style.height = hg
+		cookies[hk] = hg
+	}
+	if (document.readyState === "complete") fix()
+	else addEventListener("load", fix)
+}
+
+const fixAllBoxes = () => {
+	for (let box of allBoxes) {
+		fixBox(box)
+	}
+}
 
 for (let box of allBoxes) {
 	let type = box.classList[1]
@@ -109,5 +117,3 @@ for (let box of allBoxes) {
 		item.innerText += " (>) "
 	}
 }
-
-

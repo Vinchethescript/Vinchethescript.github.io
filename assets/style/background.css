@@ -2,16 +2,29 @@
 	background: radial-gradient(circle at top, #3e86ac 0%, #3364a3 38%, #000000 80%), #000;
     color: #fff;
 	background-repeat: no-repeat;
-	overflow: hidden;
+	background-position: 0 0;
+}
+
+.background.animate {
+	animation: bgAnimation 5s alternate infinite ease-in-out;
+}
+
+@keyframes bgAnimation {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: 0 -10vh;
+	}
 }
 
 .star {
+	--duration: calc(var(--interval) * 5);
 	position: absolute;
-	z-index: 50 !important;
 	transform: scale(1);
 	opacity: 1;
 	transform-origin: center;
-	transition: all 0.5s, transform 0.5s;
+	transition: all var(--duration), transform var(--duration);
 }
 
 .star.red {

@@ -5,6 +5,7 @@
     visibility: hidden;
     /*position: relative;*/
     top: -10px;
+	z-index: 4;
 }
 
 /*.box.projects {
@@ -26,7 +27,7 @@ div.itemThingContent {
     transform: scale(0.8);
     visibility: hidden;
     opacity: 0;
-    transition: all 1s;
+    transition: all calc(var(--interval) * 10);
     top: 20px;
     display: none;
 	word-wrap: break-word;

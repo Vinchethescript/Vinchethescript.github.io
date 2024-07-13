@@ -1,15 +1,53 @@
+<!--
+    this is just an example code if you want to use
+    my background from my site in your website :D
+
+    you can either iframe this page or copy
+    the code and use it in your website
+    
+    just... if you use it, please credit me, thanks.
+
+    the background and the stars I used in my site
+    have been taken from the Debian GNU/Linux 6 (squeeze)
+    design, "SpaceFun", and have been animated by me.
+-->
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="https://vinchethescri.pt/assets/style/background.css">
+        <!-- if you're copying the code, make sure you set the link correctly -->
+        <link rel="stylesheet" href="/assets/style/background.css">
     </head>
-    <body>
+    <style>
+        :root {
+            /**
+              * this MUST be defined here AND in the js BEFORE calling the functions.
+              * in the js though it will always be counted as milliseconds.
+              * I recommend you to use 100, but you do you I guess.
+              */
+            --interval: 100ms;
+        }
+
+        /* the 39% more is needed for the background animation to work correctly */
+        body {
+            width: 100vw;
+            height: 139vh;
+            overflow: hidden;
+            background-size: 100vw 139vh;
+        }
+    </style>
+    <body class="background animate">
         <div class="stars"></div>
-        <script src="https://vinchethescri.pt/assets/scripts/core.js"></script>
-        <script src="https://vinchethescri.pt/assets/scripts/background.js"></script>
-        <script>
-            makeStars()
-            removeRandomStars()
-        </script>
     </body>
+    <script src="/assets/scripts/core.js"></script>
+    <script src="/assets/scripts/background.js"></script>
+    <script>
+        // I recommend getting the interval from the css like this
+        const interval = getComputedStyle(document.documentElement).getPropertyValue('--interval')
+
+        // NOTE: both of the functions below must be called
+        //       one next to another, otherwise it will end
+        //       up having tons of stars until the site is reloaded.
+        makeStars()
+        removeRandomStars()
+    </script>
 </html>

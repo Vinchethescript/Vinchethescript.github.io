@@ -1,7 +1,14 @@
 <!--
 	hello yes twitter devs asked me to put this in the html source so yes
-	this site uses twemoji for those few emojis I put
+
+	there USED TO BE twemoji in this site, except that
+	SOMEONE decided to take it down. thank you a lot!
+
 	also, I use Cascadia Mono as font for this site
+
+    oh, and the background and the stars I used in my site
+    have been taken from the Debian GNU/Linux 6 (squeeze)
+	design, "SpaceFun", and have been animated by me.
 -->
 <!DOCTYPE html>
 <html>
@@ -12,136 +19,95 @@
         <link rel="stylesheet" href="/assets/style/overlay.css">
         <link rel="stylesheet" href="/assets/style/background.css">
         <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
-        <meta name="keywords" content="vincy.zsh, vinche the script, vincy, vinche.zsh">
-		<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+        <meta name="keywords" content="vinche.zsh, vinche, vinchethescript, vinchedotzsh">
+		<!--<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>-->
     </head>
     <body>
 		<div class="stars"></div>
-		<div class="centeredStuffContainer">
-			<div class="centeredStuff">
-				<div class="titleDiv">
-					<h2 class="vinchetitle">_</h2>
-				</div>
-				<div class="boxes hidden kindaRemoved">
-					<div class="box about">
-						<div class="content">
-							<h2>about me</h2>
-							hello, I'm vinche, a <div class="age"></div>guy who's interested in tech and marvel cinematic universe.
-							programming is my passion, but I also often mess with hardware, sometimes ending up with breaking it
-						</div>
-					</div>
-					<div class="box projects">
-						<div class="content">
-							<h2>my projects</h2>
-							- <div class="item vincystream">Vincy's stream</div><br>
-							- <div class="item debianissimo">Debianissimo</div><br>
-							- <div class="item strapbot">StrapBot</div><br>
-							- <div class="item dgoose">Discord Goose</div>
-						</div>
-					</div>
-					<div class="box socials">
-						<div class="content">
-							<h2>my socials</h2>
-							- <div class="item discord" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/discord.gg\/uEVf5zftqJ')">discord</div><br>
-							- <div class="item telegram" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/t.me\/Vinchethescript')">telegram</div><br>
-							- <div class="item telegramChannel" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/t.me\/About_Vinche')">telegram channel</div><br>
-							- <div class="item telegramGroup" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/t.me\/Vinche_cafe')">telegram group</div><br>
-							- <div class="item twitter" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/twitter.com\/@Vinchethescript')">twitter</div><br>
-							- <div class="item reddit" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/reddit.com\/u/Vincysuper07')">reddit</div>
-						</div>
 
-					</div>
-
-					</div>
-					<!--
-					<div class="box tests">
-						<div class="content">
-							<h2>test</h2>
-							<div class="item coso">coso</div>
-						</div>
-					</div>
-					-->
-					<div class="vinchemadethiswithherheart">website made with vinche's ❤️</div>
-
-
-				<!-- projects -->
-				<div style="display: none" class="projectsList">
-					<div class="itemThingContent vincystream">
-						<div class="content">
-							vincystream is my own stream containing some ncs songs I like at http://vincystream.online/stream
-							<br><br>
-							<!--- <div class="item listenToVincystream">listen to it</div>-->
-							- stream is unavailable
-						</div>
-					</div>
-					<div class="itemThingContent listenToVincystream">
-						<h2>vincystream player</h2>
-						<div class="center">
-							<button class="vincystreamButton" onclick="toggleStreamAndChangeButtonText()">play</button>
-							<img class="vincystreamCover" onclick="toggleStreamAndChangeButtonText()">
-							<div class="vincystreamTitle"></div>
-							<div class="vincystreamArtist smallerText"></div>
-							<input type="range" min="0" max="100" value="50" class="vincystreamVolume" oninput="setStreamVolume(this.value)">
-							<div class="volumeValue">50%</div>
-						</div>
-					</div>
-					<div class="itemThingContent debianissimo">
-						debianissimo is a porting of the ordissimo os to any computer, born as a joke<br>
-						it is italian only and discontinued at the moment
-						<br><br>
-						- <div class="item" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/debianissimo.it')">website</div>
-					</div>
-					<div class="itemThingContent strapbot">
-						strapbot is an open-source useful discord bot that has many useful commands<br>
-						it is written in python and uses discord.py<br>
-						tbh I recommend you to use the beta one, slash commands don't work but hey it has more features
-						<br><br>
-						- <div class="item" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/github.com\/StrapBot\/StrapBot')">github</div><br>
-						- <div class="item" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/discord.com\/oauth2\/authorize?client_id=740140581174378527&permissions=395945573431&scope=bot')">invite stable</div><br>
-						- <div class="item" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/discord.com\/oauth2\/authorize?client_id=903372493316821104&permissions=395945573431&scope=bot%20applications.commands')">invite beta</div>
-					</div>
-					<div class="itemThingContent dgoose">
-						honk.<br>discord goose is a bot that messes with your discord server, sends a random message in a random channel, or joins a voice channel and says "honk"<br>
-						also it is completely configurable so you can choose the channels you don't want it to send messages in
-						<br><br>
-						- <div class="item" onclick="htmlSucksAndAllowsHrefOnlyOnButtons('https:\/\/discord.com\/api\/oauth2\/authorize?client_id=909415919397261342&permissions=1236987595776&scope=bot%20applications.commands')">invite</div><br>
-					</div>
-				</div>
-				<!-- socials -->
-				<!--<div style="display: none" class="socialsList"></div>-->
-				<!--
-				<div style="display: none" class="testsList">
-					<div class="itemThingContent coso">
-						<div class="content">
-							<div class="item sottocoso">
-								sottocoso
-							</div>
-						</div>
-					</div>
-					<div class="itemThingContent sottocoso">
-						<div class="content">
-							<div class="item altrosottocoso">
-								altro sottocoso
-							</div>
-						</div>
-					</div>
-					<div class="itemThingContent altrosottocoso">
-						funziona
-					</div>
-				</div>
-				-->
+		<div class="centeredStuff">
+			<div class="titleDiv">
+				<h2 class="vinchetitle">_</h2>
 			</div>
-        </div>
+			<div class="boxes hidden kindaRemoved">
+				<div class="box about">
+					<div class="content">
+						<h2>about me</h2>
+						hello, i'm vinche, a <div class="age"></div>italian student who's interested in technology, as in both software and hardware.
+						i like programming a lot and i mostly just develop whatever comes into my mind.<br>
+						also, i am a mac and <div class="dialog">linux <div class="text">i use arch btw</div></div> user
+					</div>
+				</div>
+				<div class="box projects">
+					<div class="content">
+						<h2>my projects</h2>
+						- <div class="item strapbot">StrapBot</div><br>
+						- <div class="item aiocvv">aiocvv</div><br>
+						- <div class="item dgoose">Discord Goose</div><br>
+						- <div class="item debianissimo">Debianissimo</div><br>
+					</div>
+				</div>
+				<div class="box socials">
+					<div class="content">
+						<h2>my socials</h2>
+						- <div class="item github" onclick="redirectTo('https:\/\/github.com\/Vinchethescript')">github</div><br>
+						- <div class="item telegramChannel" onclick="redirectTo('https:\/\/t.me\/Vinchethestage')">telegram channel</div><br>
+						- <div class="item telegramGroup" onclick="redirectTo('https:\/\/t.me\/Vinchethechat')">telegram group chat</div><br>
+						- <div class="item discord" onclick="redirectTo('https:\/\/discord.gg\/uEVf5zftqJ')">discord</div><br>
+						- <div class="item twitter" onclick="redirectTo('https:\/\/twitter.com\/@Vinchethescript')">twitter</div><br>
+						- <div class="item reddit" onclick="redirectTo('https:\/\/reddit.com\/u/Vincysuper07')">reddit</div><br>
+						- <div class="item instagram" onclick="redirectTo('https:\/\/instagram.com\/vinche.zsh')">instagram</div><br>
+					</div>
+
+				</div>
+
+				</div>
+				<div class="bottomText hidden">website made with ❤️ by me</div>
+
+
+			<!-- projects -->
+			<div style="display: none" class="projectsList">
+				<div class="itemThingContent strapbot">
+					strapbot is an open-source useful discord bot that has some useful features<br>
+					it is written in python and uses discord.py<br>
+					it can also be used as a base for your own bot as long as you follow <a hide href="https://github.com/StrapBot/StrapBot#license">the license</a><br>
+					<br><br>
+					- <div class="item" onclick="redirectTo('https:\/\/github.com\/StrapBot\/StrapBot.git')">source code</div><br>
+					- <div class="item" onclick="redirectTo('https:\/\/discord.com\/oauth2\/authorize?client_id=740140581174378527&permissions=395945573431&scope=bot')">invite</div>
+				</div>
+				<div class="itemThingContent aiocvv">
+					aiocvv is an api wrapper for classeviva written in python using asyncio.
+					it is made to be easy to use and handles caching and rate limits since the api has lots of them<br>
+
+					<br><br>
+					- <div class="item" onclick="redirectTo('https:\/\/github.com\/Vinchethescript\/aiocvv.git')">source code</div><br>
+					- <div class="item" onclick="redirectTo('https:\/\/pypi.org\/project\/aiocvv')">latest release</div>
+				</div>
+				<div class="itemThingContent dgoose">
+					honk.<br>discord goose is a bot that messes with your discord server, sends a
+					random message in a random channel, or joins a voice channel and says "honk"<br>
+					also it is completely configurable so you can choose the channels you don't want it to send messages in.
+					the bot has been inspired by the <a hide href="https://samperson.itch.io/desktop-goose">desktop goose</a> app
+					<br><br>
+					- <div class="item" onclick="redirectTo('https:\/\/discord.com\/api\/oauth2\/authorize?client_id=909415919397261342&permissions=1236987595776&scope=bot%20applications.commands')">invite</div><br>
+				</div>
+				<div class="itemThingContent debianissimo">
+					debianissimo is a porting of the ordissimo os to any computer, born as a joke<br>
+					it is italian only and discontinued at the moment
+					<br><br>
+					<!--- <div class="item" onclick="redirectTo('https:\/\/debianissimo.it')">website</div>-->
+				</div>
+			</div>
+		</div>
+
         <script src="/assets/scripts/core.js"></script>
         <script src="/assets/scripts/script.js"></script>
-        <script src="/assets/scripts/projects.js"></script>
-        <script src="/assets/scripts/vincystream.js"></script>
+        <script src="/assets/scripts/boxes.js"></script>
         <script src="/assets/scripts/dates.js"></script>
         <script src="/assets/scripts/background.js"></script>
         <script>
 
-        	// alert(document.querySelector(".dgoose").getBoundingClientRect().x)
-			twemoji.parse(document.body, {
+			/*twemoji.parse(document.body, {
 				callback: (icon, options) => {
 					switch ( icon ) {
 						case 'a9':      // © copyright
@@ -151,33 +117,25 @@
 					}
 					return ''.concat(options.base, options.size, '/', icon, options.ext);
 				}
-			});
+			});*/
 
         	(async() => {
 				if (document.cookie) {
+					fixAllBoxes()
 					const boxes = document.querySelector(".boxes")
 					const title = document.querySelector(".titleDiv h2.vinchetitle")
 					boxes.classList.remove("kindaRemoved")
 					boxes.classList.remove("hidden")
 					title.onclick = toggleBoxes
+					document.querySelector(".bottomText").classList.remove("hidden")
 					document.body.classList.add("background")
 					document.body.classList.add("animate")
 					makeStars()
 	        		await sleep(250)
-					//startMetaLoop()
 					removeRandomStars()
 					alwaysUpdateAge()
 				}
 				titleAnimation()
-				/*
-				let screenHeight = 0
-				while (true) {
-					if (screenHeight != screen.height) {
-						screenHeight = screen.height
-						document.body.style.backgroundSize = "100% " + screenHeight + "px"
-					}
-					await sleep(1)
-				}*/
 			})()
         </script>
     </body>

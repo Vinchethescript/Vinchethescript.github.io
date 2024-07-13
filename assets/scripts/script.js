@@ -1,7 +1,9 @@
 const title = document.querySelector(".titleDiv h2.vinchetitle")
 const centeredStuff = document.querySelector(".centeredStuff")
+const bottomText = centeredStuff.querySelector(".bottomText")
 const boxes = document.querySelector(".boxes")
 const zwsp = "\u200b"
+const interval = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--interval').trim())
 let titleTexts = [zwsp, "_"]
 let animateTitle = true
 
@@ -12,65 +14,69 @@ const setTitleText = (text) => {
 	return titleTexts
 }
 
-const titleAnimation = async () => {
+const titleAnimation = async() => {
 	const startWithTitle = !document.cookie
 	if (startWithTitle) {
 		toggleBoxes()
 		alwaysUpdateAge()
 	}
-	const coso = "vinche@air ~ % "
-	blinkAnimation()
-	await sleep(1000)
-	setTitleText(coso)
-	await sleep(1000)
+	const ps1 = "vinche@rpi ~ % "
+	cycleText()
+	await sleep(interval * 10)
+	setTitleText(ps1)
+	await sleep(interval * 10)
 	
-	const altrocoso = "./Vinche.zsh"
-	const cosi = coso + altrocoso
-	for (let i = 1; i < altrocoso.length + 1; i++) {
-		setTitleText(coso + altrocoso.slice(0, i))
-		await sleep(100)
+	const name = "./Vinche.zsh"
+	const full = ps1 + name
+	for (let i = 1; i < name.length + 1; i++) {
+		setTitleText(ps1 + name.slice(0, i))
+		await sleep(interval)
 	}
 
 	if (startWithTitle) {
-		await sleep(200)
-		setTitleText(cosi + "<br>")
-		await sleep(1000)
-
-
+		const texts = titleTexts
+		await sleep(interval * 2)
+		setTitleText(full + "<br>")
 		boxes.classList.remove("kindaRemoved")
-		await sleep(100)
+		fixAllBoxes()
+		await sleep(interval * 10)
+
+		titleTexts[1] = titleTexts[0]
 		boxes.classList.remove("hidden")
 		title.onclick = toggleBoxes
 		animateTitle = false
-		setTitleText(cosi)
+		setTitleText(full)
 		document.body.classList.add("background")
 		makeStars()
 		removeRandomStars()
 		toggleBoxes()
-		await sleep(500)
+		bottomText.classList.remove("hidden")
+		await sleep(interval * 5)
 		animateTitle = true
-		await sleep(500)
+		await sleep(interval * 5)
 		document.body.classList.add("animate")
+		titleTexts[1] = texts[1]
 	}
 }
 
-const blinkAnimation = async () => {
+const cycleText = async() => {
 	let a = 0
-	while (true) {
+	const doCycleText = () => {
 		title.innerHTML = titleTexts[a]
 		a = animateTitle ? (a + 1) % 2 : 0
-		await sleep(250)
+		setTimeout(doCycleText, interval * 2.5)
 	}
+	doCycleText()
 }
 
-const toggleBoxes = async () => {
+const toggleBoxes = async() => {
 	const allBoxes = centeredStuff.querySelectorAll(".box")
 	for (let box of allBoxes) {
 		box.classList.toggle("hidden")
-		await sleep(125)
+		await sleep(interval * 1.25)
 	}
 }
 
-const htmlSucksAndAllowsHrefOnlyOnButtons = (stronzo) => {
-	return window.open(stronzo, "_blank")
+const redirectTo = (link) => {
+	return window.open(link, "_blank")
 }
