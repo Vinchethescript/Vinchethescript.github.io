@@ -42,12 +42,12 @@
     <script src="/assets/scripts/background.js"></script>
     <script>
         // I recommend getting the interval from the css like this
-        const interval = getComputedStyle(document.documentElement).getPropertyValue('--interval')
+        const interval = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--interval'))
 
         // NOTE: both of the functions below must be called
         //       one next to another, otherwise it will end
         //       up having tons of stars until the site is reloaded.
         makeStars()
-        setTimeout(removeRandomStars, interval * 2.5)
+        removeRandomStars()
     </script>
 </html>
