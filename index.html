@@ -1,20 +1,15 @@
 <!--
-	hello yes twitter devs asked me to put this in the html source so yes
-
-	there USED TO BE twemoji in this site, except that
-	SOMEONE decided to take it down. thank you a lot!
-
-	also, I use Cascadia Mono as font for this site
+    by the way, I use Cascadia Mono as font for this site
 
     oh, and the background and the stars I used in my site
     have been taken from the Debian GNU/Linux 6 (squeeze)
-	design, "SpaceFun", and have been animated by me.
+    design, "SpaceFun", and have been animated by me.
 -->
 <!DOCTYPE html>
 <html>
     <head>
-		<title>vinche's website</title>
-		<meta charset="UTF-8">
+        <title>vinche's website</title>
+        <meta charset="UTF-8">
         <link rel="stylesheet" href="/assets/style/style.css">
         <link rel="stylesheet" href="/assets/style/overlay.css">
         <link rel="stylesheet" href="/assets/style/background.css">
@@ -35,7 +30,7 @@
 						<h2>about me</h2>
 						hello, i'm vinche, a <div class="age"></div>italian student who's interested in technology, as in both software and hardware.
 						i like programming a lot and i mostly just develop whatever comes into my mind.<br>
-						also, i am a mac and <div class="dialog">linux <div class="text">i use arch btw</div></div> user
+						also, i am a <div class="dialog">linux <div class="text">i use arch btw</div></div> and somewhat a mac user
 					</div>
 				</div>
 				<div class="box projects">
@@ -43,6 +38,7 @@
 						<h2>my projects</h2>
 						- <div class="item strapbot">StrapBot</div><br>
 						- <div class="item aiocvv">aiocvv</div><br>
+						- <div class="item libpt6964">libPT6964</div><br>
 						- <div class="item dgoose">Discord Goose</div><br>
 						- <div class="item debianissimo">Debianissimo</div><br>
 					</div>
@@ -83,19 +79,29 @@
 					- <div class="item" onclick="redirectTo('https:\/\/github.com\/Vinchethescript\/aiocvv.git')">source code</div><br>
 					- <div class="item" onclick="redirectTo('https:\/\/pypi.org\/project\/aiocvv')">latest release</div>
 				</div>
+				<div class="itemThingContent libpt6964">
+					libpt6964 is a c++ library to interact with a segmented display that's
+					managed by the pt6964 chip.<br>
+					for now this library only fits my use case, but i might adapt it to be
+					more generic soon.
+
+					<br><br>
+					- <div class="item" onclick="redirectTo('https:\/\/github.com\/Vinchethescript\/libpt964.git')">source code</div><br>
+				</div>
 				<div class="itemThingContent dgoose">
 					honk.<br>discord goose is a bot that messes with your discord server, sends a
 					random message in a random channel, or joins a voice channel and says "honk"<br>
 					also it is completely configurable so you can choose the channels you don't want it to send messages in.
 					the bot has been inspired by the <a hide href="https://samperson.itch.io/desktop-goose">desktop goose</a> app
+					<br>the bot is offline at the moment
 					<br><br>
 					- <div class="item" onclick="redirectTo('https:\/\/discord.com\/api\/oauth2\/authorize?client_id=909415919397261342&permissions=1236987595776&scope=bot%20applications.commands')">invite</div><br>
 				</div>
 				<div class="itemThingContent debianissimo">
-					debianissimo is a porting of the ordissimo os to any computer, born as a joke<br>
-					it is italian only and discontinued at the moment
+					debianissimo is a porting of the ordissimo os to any computer, originally born as a joke<br>
+					it can be installed using the guide available on the github organization [in italian]
 					<br><br>
-					<!--- <div class="item" onclick="redirectTo('https:\/\/debianissimo.it')">website</div>-->
+					- <div class="item" onclick="redirectTo('https:\/\/github.com\/Debianissimo')">organization</div>-->
 				</div>
 			</div>
 		</div>
