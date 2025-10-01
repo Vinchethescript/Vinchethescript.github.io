@@ -65,8 +65,7 @@ const removeRandomStars = async() => {
 const makeStars = async(stars) => {
 	stars = stars ?? randint(25, 75)
 	for (let i = 0; i < stars; i++) {
-		const rand = (500 - (i * 7.5))
-		if (rand == 0) continue // avoid zero division
+		const rand = (500 - (i * 6.5))
 
 		makeStar(i)
 		await sleep(Math.min(interval / Math.random() / rand, 25))
