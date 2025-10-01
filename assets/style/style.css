@@ -44,10 +44,23 @@ body {
 }
 
 body.background {
-	background-size: 100vw 139vh;
+	background-size: 100vw 138vh;
 	background-repeat: no-repeat;
 	background-position: 0 0;
 	z-index: 1;
+}
+
+body.background.animationTop {
+	animation: bgAnimationTop 1.25s forwards cubic-bezier(.25,.75,.5,1);
+}
+
+@keyframes bgAnimationTop {
+	0% {
+		background-position: 0 -139vh;
+	}
+	100% {
+		background-position: 0 0vh;
+	}
 }
 
 
@@ -171,6 +184,11 @@ button.backButton {
 	align-items: center;
 	flex-direction: column;
 	padding: 10px;
+	transition: opacity calc(var(--interval) * 5);
+}
+
+.bottomText.realHidden {
+	display: none;
 }
 
 .center {

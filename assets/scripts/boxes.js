@@ -10,7 +10,6 @@ const getProjectElement = (projects, id) => {
 }
 
 const onBackButtonClick = async(item, box, originalHeight, currentHeight, project, content) => {
-	console.trace(item, project)
 	project.style.zIndex = ""
 	box.classList.remove("itemThing")
 	content.classList.remove("itemThing")

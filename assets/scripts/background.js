@@ -4,7 +4,7 @@ const maxRandMultip = 100
 const maxStarSize = 100
 const minStarSize = 10
 
-const makeStar = async() => {
+const makeStar = async(index) => {
 	const bodyData = getComputedStyle(document.body)
 	const bodyHeight = parseFloat(bodyData.height)
 	let maxHeight = (bodyHeight / window.innerHeight) * 100
@@ -13,9 +13,13 @@ const makeStar = async() => {
 	}
 	const halfWidth = parseFloat(bodyData.width) / 2
 	const star = document.createElement("div")
-	const rotation = randint(0, 360)
+	const rotation = randint(-360, 360)
 	const size = randint(minStarSize, maxStarSize)
 	const radRot = rotation * Math.PI / 180
+
+	if (typeof index === "number") {
+		star.style.setProperty("--duration", ((interval * 5) + (index * 5)) + "ms")
+	}
 
 	const hght = Math.abs(size * Math.sin(radRot) + size * Math.cos(radRot))
 	const mxHg = Math.abs(maxStarSize * Math.sin(radRot) + maxStarSize * Math.cos(radRot))
@@ -37,6 +41,7 @@ const makeStar = async() => {
 	// always keep a veeeery little blur, so the stars don't look too sharp
 	const blur = 0.0625 + (Math.abs((left - halfWidth)) / 500) + (parseFloat(star.style.top) / 27.5)
 	star.style.filter = "blur(" + blur + "px)"
+
 	await sleep(interval / 100)
 	star.classList.remove("hidden")
 	return star
@@ -59,9 +64,12 @@ const removeRandomStars = async() => {
 
 const makeStars = async(stars) => {
 	stars = stars ?? randint(25, 75)
-	for (let i of Array(stars)) {
-		makeStar()
-		await sleep(0)
+	for (let i = 0; i < stars; i++) {
+		const rand = (500 - (i * 7.5))
+		//if (rand == 0) continue // avoid zero division
+
+		makeStar(i)
+		await sleep(Math.min(interval / Math.random() / rand, 25))
 	}
 
 	const doCreateStar = () => {

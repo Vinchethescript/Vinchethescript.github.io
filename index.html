@@ -30,7 +30,7 @@
 						<h2>about me</h2>
 						hello, i'm vinche, a <div class="age"></div>italian student who's interested in technology, as in both software and hardware.
 						i like programming a lot and i mostly just develop whatever comes into my mind.<br>
-						also, i am a <div class="dialog">linux <div class="text">i use arch btw</div></div> and (somewhat) mac user
+						also, i am a mac and <div class="dialog">linux <div class="text">i use arch btw</div></div> user
 					</div>
 				</div>
 				<div class="box projects">
@@ -58,7 +58,7 @@
 				</div>
 
 				</div>
-				<div class="bottomText hidden">website made with ❤️ by me</div>
+				<div class="bottomText hidden realHidden">website made with ❤️ by me</div>
 
 
 			<!-- projects -->
@@ -133,7 +133,10 @@
 					boxes.classList.remove("kindaRemoved")
 					boxes.classList.remove("hidden")
 					title.onclick = toggleBoxes
-					document.querySelector(".bottomText").classList.remove("hidden")
+					const bottomText = document.querySelector(".bottomText")
+					bottomText.classList.remove("hidden")
+					bottomText.classList.remove("realHidden")
+
 					document.body.classList.add("background")
 					document.body.classList.add("animate")
 					makeStars()

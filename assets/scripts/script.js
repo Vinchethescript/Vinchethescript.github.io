@@ -24,7 +24,7 @@ const titleAnimation = async() => {
 	cycleText()
 	await sleep(interval * 10)
 	setTitleText(ps1)
-	await sleep(interval * 10)
+	await sleep(interval * 12.5)
 	
 	const name = "./Vinche.zsh"
 	const full = ps1 + name
@@ -34,27 +34,34 @@ const titleAnimation = async() => {
 	}
 
 	if (startWithTitle) {
+		const rand = + (randint(125, 500) / 100)
 		const texts = titleTexts
-		await sleep(interval * 2)
+		await sleep(interval * (2 + (rand / 2)))
 		setTitleText(full + "<br>")
+		bottomText.classList.remove("realHidden")
 		boxes.classList.remove("kindaRemoved")
 		fixAllBoxes()
-		await sleep(interval * 10)
+		await sleep(interval * (10 + rand))
 
 		titleTexts[1] = titleTexts[0]
 		boxes.classList.remove("hidden")
 		title.onclick = toggleBoxes
 		animateTitle = false
 		setTitleText(full)
+		document.body.classList.add("animationTop")
+		document.body.addEventListener("animationend", async() => {
+			document.body.classList.remove("animationTop")
+			await sleep(interval * 15)
+			document.body.classList.add("animate")
+		}, { once: true })
 		document.body.classList.add("background")
 		makeStars()
 		removeRandomStars()
 		toggleBoxes()
-		bottomText.classList.remove("hidden")
 		await sleep(interval * 5)
 		animateTitle = true
 		await sleep(interval * 5)
-		document.body.classList.add("animate")
+		bottomText.classList.remove("hidden")
 		titleTexts[1] = texts[1]
 	}
 }
