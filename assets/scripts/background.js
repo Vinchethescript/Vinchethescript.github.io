@@ -13,7 +13,7 @@ const makeStar = async(index) => {
 	}
 	const halfWidth = parseFloat(bodyData.width) / 2
 	const star = document.createElement("div")
-	const rotation = randint(-360, 360)
+	const rotation = randint(-90, 90)
 	const size = randint(minStarSize, maxStarSize)
 	const radRot = rotation * Math.PI / 180
 
@@ -29,7 +29,7 @@ const makeStar = async(index) => {
 	stars.appendChild(star)
 	star.style.width = size + "px"
 	star.style.height = star.style.width
-	star.style.transform = "rotate(" + rotation + "deg)"
+	star.style.transform = "scale(1) rotate(" + rotation + "deg)"
 
 	// remove 1/3 of the star's size from maxHeight
 	maxHeight -= (((hght / mxHg) * 100) / 3)
@@ -66,7 +66,7 @@ const makeStars = async(stars) => {
 	stars = stars ?? randint(25, 75)
 	for (let i = 0; i < stars; i++) {
 		const rand = (500 - (i * 7.5))
-		//if (rand == 0) continue // avoid zero division
+		if (rand == 0) continue // avoid zero division
 
 		makeStar(i)
 		await sleep(Math.min(interval / Math.random() / rand, 25))

@@ -21,21 +21,21 @@
 .star {
 	--duration: calc(var(--interval) * 5);
 	position: absolute;
-	transform: scale(1);
+	transform: scale(1) rotate(0deg);
 	opacity: 1;
 	transform-origin: center;
 	transition: all var(--duration), transform var(--duration);
 }
 
 .star.red {
-	background: url("/assets/images/starred.svg") no-repeat/*, radial-gradient(circle at center, #3e86ac 0%, #3364a3 19%, transparent 50%);*/
+	background: url("/assets/images/starred.svg") no-repeat
 }
 
 .star.white {
-	background: url("/assets/images/starwhite.svg") no-repeat/*, radial-gradient(circle at center, #3e86ac 0%, #3364a3 19%, transparent 50%);*/
+	background: url("/assets/images/starwhite.svg") no-repeat
 }
 
 .star.hidden {
 	opacity: 0 !important;
-	transform: scale(0) !important;
+	transform: scale(0) rotate(0deg) !important;
 }
