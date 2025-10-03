@@ -32,7 +32,6 @@ const itemOnClick = async(item, box, type, projectContent, parentContent) => {
 
 	const startHeight = window.getComputedStyle(box).height
 	const content = parentContent
-	projectContent.style.zIndex = 5
 	box.dataset.openItem = item.classList[1]
 	box.classList.add("itemThing")
 	content.classList.add("itemThing")
