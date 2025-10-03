@@ -33,13 +33,14 @@ const makeStar = async(index) => {
 
 	// remove 1/3 of the star's size from maxHeight
 	maxHeight -= (((hght / mxHg) * 100) / 3)
-	star.style.top = (randint(1000, maxHeight * 1000) / 1000) + "%"
+	const top = (randint(1000, maxHeight * 1000) / 1000)
+	star.style.top = top + "%"
 	star.style.left = (randint(1000, 100000) / 1000) + "%"
 
 	const computedStyle = getComputedStyle(star)
 	const left = Math.round(parseFloat(computedStyle.left))
 	// always keep a veeeery little blur, so the stars don't look too sharp
-	const blur = 0.0625 + (Math.abs((left - halfWidth)) / 500) + (parseFloat(star.style.top) / 27.5)
+	const blur = 0.0625 + (Math.abs((left - halfWidth)) / 500) + (top / 27.5)
 	star.style.filter = "blur(" + blur + "px)"
 
 	await sleep(interval / 100)
