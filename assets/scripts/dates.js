@@ -7,7 +7,7 @@ const alwaysUpdateAge = async() => {
     
     const today = Date.now()
 
-    age = new Date(today - birthDate).getUTCFullYear() - 1970
+    age = new Date(today - birthDate).getFullYear() - 1970
     const text = `${age} years old`
     cookies["age"] = text
     agePart.innerText = text + " "
