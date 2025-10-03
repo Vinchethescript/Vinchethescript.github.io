@@ -68,7 +68,7 @@ const makeStars = async(stars) => {
 		const rand = (500 - (i * 6.5))
 
 		makeStar(i)
-		await sleep(Math.min(interval / Math.random() / rand, 25))
+		await sleep(Math.min((interval / Math.random() / rand) * 5, 25))
 	}
 
 	const doCreateStar = () => {
