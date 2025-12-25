@@ -33,7 +33,7 @@ div.itemThingContent {
 	word-wrap: break-word;
 	pointer-events: none;
 	z-index: -1;
-	position:absolute
+	position: absolute;
 }
 
 
@@ -44,7 +44,7 @@ div.itemThingContent.show {
 	visibility: visible;
 	top: 0;
 	z-index: 100;
-	position: initial
+	position: initial;
 	/*animation: showProject 1s forwards*/
 }
 

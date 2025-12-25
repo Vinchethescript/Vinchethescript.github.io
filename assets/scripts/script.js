@@ -6,7 +6,11 @@ const zwsp = "\u200b"
 const interval = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--interval').trim())
 let titleTexts = [zwsp, "_"]
 let animateTitle = true
+let alreadyLoaded = false
 
+window.onload = () => {
+	alreadyLoaded = true
+}
 
 const setTitleText = (text) => {
 	title.innerHTML = text + (animateTitle ? "_" : zwsp)
@@ -38,31 +42,40 @@ const titleAnimation = async() => {
 		const texts = titleTexts
 		await sleep(interval * (2 + (rand / 2)))
 		setTitleText(full + "<br>")
-		bottomText.classList.remove("realHidden")
-		boxes.classList.remove("kindaRemoved")
-		fixAllBoxes()
-		await sleep(interval * (10 + rand))
+		const load = async() => {
+			bottomText.classList.remove("realHidden")
+			boxes.classList.remove("kindaRemoved")
+			fixAllBoxes()
+			await sleep(interval * (10 + rand))
 
-		titleTexts[1] = titleTexts[0]
-		boxes.classList.remove("hidden")
-		title.onclick = toggleBoxes
-		animateTitle = false
-		setTitleText(full)
-		document.body.classList.add("animationTop")
-		document.body.addEventListener("animationend", async() => {
-			document.body.classList.remove("animationTop")
-			await sleep(interval * 15)
-			document.body.classList.add("animate")
-		}, { once: true })
-		document.body.classList.add("background")
-		makeStars()
-		removeRandomStars()
-		toggleBoxes()
-		await sleep(interval * 5)
-		animateTitle = true
-		await sleep(interval * 5)
-		bottomText.classList.remove("hidden")
-		titleTexts[1] = texts[1]
+			titleTexts[1] = titleTexts[0]
+			boxes.classList.remove("hidden")
+			title.onclick = toggleBoxes
+			animateTitle = false
+			setTitleText(full)
+			document.body.classList.add("animationTop")
+			document.body.addEventListener("animationend", async() => {
+				document.body.classList.remove("animationTop")
+				await sleep(interval * 15)
+				document.body.classList.add("animate")
+			}, { once: true })
+			document.body.classList.add("background")
+			makeStars()
+			removeRandomStars()
+			toggleBoxes()
+			await sleep(interval * 5)
+			animateTitle = true
+			await sleep(interval * 5)
+			bottomText.classList.remove("hidden")
+			titleTexts[1] = texts[1]
+		}
+		if (alreadyLoaded) {
+			await load()
+		} else {
+			window.addEventListener("load", async() => {
+				await load()
+			}, { once: true })
+		}
 	}
 }
 
