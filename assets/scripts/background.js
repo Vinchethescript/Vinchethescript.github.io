@@ -39,6 +39,7 @@ const makeStar = async(index) => {
 
 	const computedStyle = getComputedStyle(star)
 	const left = Math.round(parseFloat(computedStyle.left))
+
 	// always keep a veeeery little blur, so the stars don't look too sharp
 	const blur = 0.0625 + (Math.abs((left - halfWidth)) / 500) + (top / 27.5)
 	star.style.filter = "blur(" + blur + "px)"

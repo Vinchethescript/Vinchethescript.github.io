@@ -51,12 +51,13 @@ body.background {
 }
 
 body.background.animationTop {
+	transition: none;
 	animation: bgAnimationTop 1.25s forwards cubic-bezier(.25,.75,.5,1);
 }
 
 @keyframes bgAnimationTop {
 	0% {
-		background-position: 0 -139vh;
+		background-position: 0 -150vh;
 	}
 	100% {
 		background-position: 0 0vh;
@@ -168,15 +169,7 @@ button.backButton {
 	}
 }
 
-/* I'm not removing this because maybe
- * twemoji will be available again in the future
- */
-/*img.emoji {
-	height: 1em;
-	width: 1em;
-	margin: 0 .05em 0 .1em;
-	vertical-align: -0.1em;
-}*/
+/* guess what, i removed it */
 
 .bottomText {
 	display: flex;

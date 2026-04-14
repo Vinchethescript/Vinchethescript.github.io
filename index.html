@@ -1,5 +1,5 @@
 <!--
-    by the way, I use Cascadia Mono as font for this site
+    by the way, I use Cascadia Mono as font for this site.
 
     oh, and the background and the stars I used in my site
     have been taken from the Debian GNU/Linux 6 (squeeze)
@@ -11,11 +11,10 @@
         <title>vinche's website</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/assets/style/style.css">
-        <link rel="stylesheet" href="/assets/style/overlay.css">
+        <link rel="stylesheet" href="/assets/style/boxes.css">
         <link rel="stylesheet" href="/assets/style/background.css">
         <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
         <meta name="keywords" content="vinche.zsh, vinche, vinchethescript, vinchedotzsh">
-		<!--<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>-->
     </head>
     <body>
 		<div class="stars"></div>
@@ -38,8 +37,8 @@
 						<h2>my projects</h2>
 						- <div class="item strapbot">StrapBot</div><br>
 						- <div class="item aiocvv">aiocvv</div><br>
+						- <div class="item didupy">didupy</div><br>
 						- <div class="item libpt6964">libPT6964</div><br>
-						- <div class="item dgoose">Discord Goose</div><br>
 						- <div class="item debianissimo">Debianissimo</div><br>
 					</div>
 				</div>
@@ -52,13 +51,12 @@
 						- <div class="item discord" onclick="redirectTo('https:\/\/discord.gg\/uEVf5zftqJ')">discord</div><br>
 						- <div class="item twitter" onclick="redirectTo('https:\/\/twitter.com\/@Vinchethescript')">twitter</div><br>
 						- <div class="item reddit" onclick="redirectTo('https:\/\/reddit.com\/u/Vincysuper07')">reddit</div><br>
-						- <div class="item instagram" onclick="redirectTo('https:\/\/instagram.com\/vinche.zsh')">instagram</div><br>
 					</div>
 
 				</div>
 
 				</div>
-				<div class="bottomText hidden realHidden">website made with ❤️ by me</div>
+				<div class="bottomText hidden realHidden">website made with &lt;3 by me</div>
 
 
 			<!-- projects -->
@@ -67,6 +65,7 @@
 					strapbot is an open-source useful discord bot that has some useful features<br>
 					it is written in python and uses discord.py<br>
 					it can also be used as a base for your own bot as long as you follow <a hide href="https://github.com/StrapBot/StrapBot#license">the license</a><br>
+
 					<br><br>
 					- <div class="item" onclick="redirectTo('https:\/\/github.com\/StrapBot\/StrapBot.git')">source code</div><br>
 					- <div class="item" onclick="redirectTo('https:\/\/discord.com\/oauth2\/authorize?client_id=740140581174378527&permissions=395945573431&scope=bot')">invite</div>
@@ -79,29 +78,31 @@
 					- <div class="item" onclick="redirectTo('https:\/\/github.com\/Vinchethescript\/aiocvv.git')">source code</div><br>
 					- <div class="item" onclick="redirectTo('https:\/\/pypi.org\/project\/aiocvv')">latest release</div>
 				</div>
+				<div class="itemThingContent didupy">
+					didupy is basically the same as aiocvv but for the didup family platform.<br>
+					an api wrapper for the didup api, written in python using asyncio, made to be as easy to use
+					as possible but doesn't handle caching/rate limits because there don't seem to be any<br>
+
+					<br><br>
+					- <div class="item" onclick="redirectTo('https:\/\/github.com\/Vinchethescript\/didupy.git')">source code</div><br>
+				</div>
 				<div class="itemThingContent libpt6964">
 					libpt6964 is a c++ library to interact with a segmented display that's
 					managed by the pt6964 chip.<br>
-					for now this library only fits my use case, but i might adapt it to be
-					more generic soon.
+
+					stable enough for use but still in development, there's no documentation yet
+					but you can check the source (it's not that hard to read, i think(?))<br>
 
 					<br><br>
 					- <div class="item" onclick="redirectTo('https:\/\/github.com\/Vinchethescript\/libpt6964.git')">source code</div><br>
 				</div>
-				<div class="itemThingContent dgoose">
-					honk.<br>discord goose is a bot that messes with your discord server, sends a
-					random message in a random channel, or joins a voice channel and says "honk"<br>
-					also it is completely configurable so you can choose the channels you don't want it to send messages in.
-					the bot has been inspired by the <a hide href="https://samperson.itch.io/desktop-goose">desktop goose</a> app
-					<br>the bot is offline at the moment
-					<br><br>
-					- <div class="item" onclick="redirectTo('https:\/\/discord.com\/api\/oauth2\/authorize?client_id=909415919397261342&permissions=1236987595776&scope=bot%20applications.commands')">invite</div><br>
-				</div>
 				<div class="itemThingContent debianissimo">
-					debianissimo is a porting of the ordissimo os to any computer, originally born as a joke<br>
-					it can be installed using the guide available on the github organization [in italian]
+					debianissimo is a port of the ordissimo os to any computer, originally born as a joke<br>
+					it can be installed using the guide available on the github organization [in italian] or with the patched debian-installer iso file.<br>
+
 					<br><br>
-					- <div class="item" onclick="redirectTo('https:\/\/github.com\/Debianissimo')">organization</div>
+					- <div class="item" onclick="redirectTo('https:\/\/github.com\/Debianissimo')">organization</div><br>
+					- <div class="item" onclick="redirectTo('https:\/\/github.com\/Debianissimo\/debianissimo/releases/latest')">latest release</div><br>
 				</div>
 			</div>
 		</div>
@@ -112,21 +113,8 @@
         <script src="/assets/scripts/dates.js"></script>
         <script src="/assets/scripts/background.js"></script>
         <script>
-
-			/*twemoji.parse(document.body, {
-				callback: (icon, options) => {
-					switch ( icon ) {
-						case 'a9':      // © copyright
-						case 'ae':      // ® registered trademark
-						case '2122':    // ™ trademark
-							return false;
-					}
-					return ''.concat(options.base, options.size, '/', icon, options.ext);
-				}
-			});*/
-
         	(async() => {
-				if (document.cookie) {
+				if (document.cookie && false) {
 					fixAllBoxes()
 					const boxes = document.querySelector(".boxes")
 					const title = document.querySelector(".titleDiv h2.vinchetitle")

@@ -1,6 +1,3 @@
-//const items = document.querySelectorAll("div.item")
-//const projects = document.querySelector(".projectsList").children
-
 const getProjectElement = (projects, id) => {
 	for (let p of projects) {
 		if (p.classList.contains(id)) {
@@ -51,14 +48,13 @@ const itemOnClick = async(item, box, type, projectContent, parentContent) => {
 	}
 
 
-//	content.style.display = "none"
 	await sleep(1)
-	//const currentHeight = parseInt(window.getComputedStyle(box).height)
+
 	const currentHeight = parseInt(window.getComputedStyle(contentOrProj).height)
 	backButton.onclick = () => onBackButtonClick(item, box, startHeight, currentHeight, projectContent, content)
 
 	let heightBeingUsed = parseInt(startHeight)
-	//let bodyHeightBeingUsed = parseInt(bodyStartHeight)
+
 	if (currentHeight > heightBeingUsed) {
 		box.style.height = currentHeight + "px"
 		await sleep(1000)
