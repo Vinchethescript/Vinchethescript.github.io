@@ -19,7 +19,7 @@ const setTitleText = (text) => {
 }
 
 const titleAnimation = async() => {
-	const startWithTitle = !document.cookie || true
+	const startWithTitle = !document.cookie
 	if (startWithTitle) {
 		toggleBoxes()
 		alwaysUpdateAge()
